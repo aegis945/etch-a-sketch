@@ -1,0 +1,11 @@
+.grid-container {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+    display: grid;
+}
+
+.grid-square {
+    background-color: white;
+    border: 1px solid black;
+}
