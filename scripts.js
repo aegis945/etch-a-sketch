@@ -1,4 +1,15 @@
 let gridSize = 16;
+/*display slider value*/
+const slider = document.getElementById("myRange");
+const output = document.getElementById("demo");
+output.innerHTML = slider.value;
+/*update grid size according to slider value*/
+slider.addEventListener("mouseup", function () {
+    gridSize = slider.value;
+    output.innerHTML = slider.value;
+    clearGrid();
+    createGrid(gridSize);
+});
 
 function createGrid(gridSize) {
     const container = document.querySelector(".grid-container");
@@ -12,15 +23,12 @@ function createGrid(gridSize) {
         }
     }
 }
+
+function clearGrid() {
+    let gridElements = document.querySelectorAll(".grid-square");
+    for (let i = 0; (el = gridElements[i]); i++) {
+        el.parentNode.removeChild(el);
+    }
+}
+
 createGrid(gridSize);
-
-
-let slider = document.getElementById("myRange");
-let output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
-slider.addEventListener("mouseup", function () {
-    gridSize = slider.value;
-    output.innerHTML = slider.value;
-    createGrid(gridSize);
-});
