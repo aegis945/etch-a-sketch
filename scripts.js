@@ -13,3 +13,14 @@ function createGrid(gridSize) {
     }
 }
 createGrid(gridSize);
+
+
+let slider = document.getElementById("myRange");
+let output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.addEventListener("mouseup", function () {
+    gridSize = slider.value;
+    output.innerHTML = slider.value;
+    createGrid(gridSize);
+});
