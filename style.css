@@ -1,6 +1,35 @@
+body {
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.frame {
+    margin-top: 50px;
+    height: 850px;
+    width: 750px;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .grid-container {
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 550px;
     border: 1px solid black;
     display: grid;
 }
