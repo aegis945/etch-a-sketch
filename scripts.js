@@ -26,6 +26,7 @@ function createGrid(gridSize) {
 }
 createGrid(gridSize);
 changeColor();
+clearGridSquare();
 
 function clearGrid() {
     const gridElements = document.querySelectorAll(".grid-square");
@@ -39,6 +40,16 @@ function changeColor() {
     for (let i = 0; (el = gridElements[i]); i++) {
         el.addEventListener("click", function () {
             gridElements[i].style.backgroundColor = "black";
+        });
+    }
+}
+
+function clearGridSquare() {
+    const gridElements = document.querySelectorAll(".grid-square");
+    for (let i = 0; (el = gridElements[i]); i++) {
+        el.addEventListener("contextmenu", function (event) {
+            event.preventDefault();
+            gridElements[i].style.backgroundColor = "white";
         });
     }
 }
