@@ -5,6 +5,11 @@ body {
     background-position: center center;
 }
 
+nav {
+    color: white;
+    margin-left: 10px;
+}
+
 .title {
     --glow-color: rgb(217, 176, 255);
     --glow-spread-color: rgba(191, 123, 255, 0.781);
@@ -34,10 +39,10 @@ body {
         inset 0 0 .75em .25em var(--glow-color);
 }
 
-.flex-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: baseline;
 }
 
 .title {
