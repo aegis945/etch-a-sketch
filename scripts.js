@@ -1,12 +1,14 @@
 let gridSize = 16;
+let color = "black";
 /* display initial slider value */
 const slider = document.getElementById("myRange");
 const output = document.getElementById("demo");
 const gridElements = document.querySelectorAll(".grid-square");
-output.innerHTML = slider.value + "x" + slider.value;
+output.innerHTML = "Grid size: " + slider.value + "x" + slider.value;
 
 function main() {
     createGrid(gridSize);
+    resetButton();
     updateGrid();
     draw();
     clearGridSquare();
@@ -16,7 +18,7 @@ function main() {
 function updateGrid() {
     slider.addEventListener("input", function () {
         gridSize = slider.value;
-        output.innerHTML = slider.value + "x" + slider.value;;
+        output.innerHTML = "Grid size: " + slider.value + "x" + slider.value;;
         clearGrid();
         createGrid(gridSize);
         draw();
@@ -43,6 +45,16 @@ function clearGrid() {
         el.parentNode.removeChild(el);
     }
 }
+
+function resetButton() {
+    document.querySelector(".reset-btn").addEventListener("click", function () {
+        clearGrid();
+        createGrid(gridSize);
+        draw();
+        clearGridSquare();
+    });
+}
+
 /* clears out an individual grid square */
 function clearGridSquare() {
     const gridElements = document.querySelectorAll(".grid-square");
@@ -59,15 +71,24 @@ function clearGridSquare() {
     }
 }
 
+function pickColor() {
+    document.querySelector(".color-picker").addEventListener("input", function () {
+        color = this.value;
+    });
+}
+
 function draw() {
+    pickColor();
     const gridElements = document.querySelectorAll(".grid-square");
     for (let i = 0; (el = gridElements[i]); i++) {
-        el.addEventListener("click", function () {
-            gridElements[i].style.backgroundColor = "black";
-        });
-        el.addEventListener("mouseover", function (e) {
+        el.addEventListener("mousedown", function (e) {
             if (e.buttons & 1) {
-                gridElements[i].style.backgroundColor = "black";
+                gridElements[i].style.backgroundColor = `${color}`;
+            }
+        });
+        el.addEventListener("mousemove", function (e) {
+            if (e.buttons & 1) {
+                gridElements[i].style.backgroundColor = `${color}`;
             }
         });
     }
