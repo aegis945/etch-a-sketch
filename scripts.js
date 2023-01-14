@@ -8,6 +8,7 @@ output.innerHTML = "Grid size: " + slider.value + "x" + slider.value;
 
 function main() {
     createGrid(gridSize);
+    draw();
     resetButton();
     updateGrid();
     clearGridSquare();
@@ -94,4 +95,3 @@ function draw() {
 }
 
 main();
-draw();
