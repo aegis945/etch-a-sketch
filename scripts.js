@@ -10,7 +10,6 @@ function main() {
     createGrid(gridSize);
     resetButton();
     updateGrid();
-    draw();
     clearGridSquare();
 }
 
@@ -61,11 +60,11 @@ function clearGridSquare() {
     for (let i = 0; (el = gridElements[i]); i++) {
         el.addEventListener("contextmenu", function (event) {
             event.preventDefault();
-            gridElements[i].style.backgroundColor = "white";
+            gridElements[i].style.backgroundColor = "lightgrey";
         });
         el.addEventListener("mouseover", function (e) {
             if (e.buttons & 2) {
-                gridElements[i].style.backgroundColor = "white";
+                gridElements[i].style.backgroundColor = "lightgrey";
             }
         });
     }
@@ -82,11 +81,11 @@ function draw() {
     const gridElements = document.querySelectorAll(".grid-square");
     for (let i = 0; (el = gridElements[i]); i++) {
         el.addEventListener("mousedown", function (e) {
-            if (e.buttons & 1) {
-                gridElements[i].style.backgroundColor = `${color}`;
-            }
+            e.preventDefault();
+            gridElements[i].style.backgroundColor = `${color}`;
         });
-        el.addEventListener("mousemove", function (e) {
+        el.addEventListener("mouseover", function (e) {
+            e.preventDefault();
             if (e.buttons & 1) {
                 gridElements[i].style.backgroundColor = `${color}`;
             }
@@ -95,3 +94,4 @@ function draw() {
 }
 
 main();
+draw();
