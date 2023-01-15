@@ -11,15 +11,15 @@ output.innerHTML = "Grid size: " + slider.value + "x" + slider.value;
 
 function main() {
     createGrid(gridSize);
-    colorPicker.onchange = function () {
-        randomizerActive = false;
-    }
+    pickColor();
     randomColors();
     draw();
     resetButton();
     updateGrid();
     clearGridSquare();
+    colorPicker.onchange = disableRandomColors;
 }
+
 
 /* update grid size according to slider value */
 function updateGrid() {
@@ -99,21 +99,37 @@ function randomColors() {
     randomizer.onclick = function () {
         randomizerActive = true;
         const gridElements = document.querySelectorAll(".grid-square");
-        for (let i = 0; (el = gridElements[i]); i++) {
-            el.addEventListener("mousedown", function (e) {
+        for (let i = 0; i < gridElements.length; i++) {
+            let mousedownFunction = function (e) {
                 e.preventDefault();
-                gridElements[i].style.backgroundColor = getRandomColor();
-            });
-            el.addEventListener("mouseover", function (e) {
+                if (randomizerActive) {
+                    gridElements[i].style.backgroundColor = getRandomColor();
+                } else {
+                    gridElements[i].style.backgroundColor = color;
+                }
+            };
+            let mouseoverFunction = function (e) {
                 e.preventDefault();
                 if (e.buttons & 1) {
-                    gridElements[i].style.backgroundColor = getRandomColor();
+                    if (randomizerActive) {
+                        gridElements[i].style.backgroundColor = getRandomColor();
+                    } else {
+                        gridElements[i].style.backgroundColor = color;
+                    }
                 }
-            });
+            };
+            gridElements[i].addEventListener("mousedown", mousedownFunction);
+            gridElements[i].addEventListener("mouseover", mouseoverFunction);
         }
-        resetButton();
-        updateGrid();
-        clearGridSquare();
+    }
+}
+
+function disableRandomColors() {
+    randomizerActive = false;
+    const gridElements = document.querySelectorAll(".grid-square");
+    for (let i = 0; i < gridElements.length; i++) {
+        gridElements[i].removeEventListener("mousedown", mousedownFunction);
+        gridElements[i].removeEventListener("mouseover", mouseoverFunction);
     }
 }
 
