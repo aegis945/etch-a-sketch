@@ -1,4 +1,4 @@
-# etch-a-sketch
+# Etch A Sketch
 Etch-a-sketch is a project that allows users to create drawings on a virtual sketchpad.
 The application features a grid of squares, which can be colored by clicking and dragging the mouse.
 The grid size can be adjusted using a slider, 
@@ -6,4 +6,4 @@ and the color of the squares can be changed using a color picker or by clicking 
 The user can also reset the grid and clear individual squares by right-clicking. 
 This project is a fun and interactive way to explore the basics of web development and JavaScript.
 
-[Live demo] (https://aegis945.github.io/etch-a-sketch/)
+[Live demo](https://aegis945.github.io/etch-a-sketch/)
