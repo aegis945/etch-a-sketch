@@ -5,3 +5,5 @@ The grid size can be adjusted using a slider,
 and the color of the squares can be changed using a color picker or by clicking on a "Random Color" button. 
 The user can also reset the grid and clear individual squares by right-clicking. 
 This project is a fun and interactive way to explore the basics of web development and JavaScript.
+
+[Live demo] (https://aegis945.github.io/etch-a-sketch/)
