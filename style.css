@@ -107,7 +107,7 @@ label,
     border-radius: 10px;
 }
 
-button {
+.reset-btn {
     grid-column: 3;
     grid-row: 2;
     margin-top: 10px;
@@ -123,7 +123,7 @@ button {
     background: var(--button_outline_color);
 }
 
-.button_top {
+.button_right {
     display: grid;
     background-color: darkslateblue;
     width: fit-content;
@@ -136,12 +136,46 @@ button {
     transition: transform 0.1s ease;
 }
 
-button:hover .button_top {
+.color-btn {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 10px;
+    width: 145px;
+    height: 52px;
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: lightgrey;
+    --button_outline_color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+}
+
+.button_left {
+    display: grid;
+    align-content: center;
+    background-color: darkslateblue;
+    width: 80.922px;
+    height: 20px;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background-color: darkslateblue;
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+button:hover .button_left,
+button:hover .button_right {
     /* Pull the button upwards when hovered */
     transform: translateY(-0.33em);
 }
 
-button:active .button_top {
+button:active .button_left,
+button:active .button_right {
     /* Push the button downwards when pressed */
     transform: translateY(0);
 }
